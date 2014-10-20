@@ -50,12 +50,16 @@ public class Chatbot {
 	{
 		this.name = name;
 	}
-
+	/**
+	 * tells how many times the user has input.
+	 */
 	public void incrementChats() 
 	{
 		numberOfChats++;
 	}
-	
+	/**
+	 * fills the meme array list
+	 */
 	private void fillTheMemeList()
 	{
 			memeList.add("y u madBro?");
@@ -132,7 +136,11 @@ public class Chatbot {
 		
 		return okToQuit;
 	}
-	
+	/**
+	 * tells how lon the user input is
+	 * @param input
+	 * @return tells if the string is too long
+	 */
 	private boolean stringLengthChecker(String input)
 	{
 		boolean isTooLong = false;
@@ -145,7 +153,11 @@ public class Chatbot {
 		return isTooLong;
 	}
 	
-
+	/**
+	 * see's if the user input a meme
+	 * @param currentText
+	 * @return true or false
+	 */
 	private boolean memeChecker(String currentText)
 	{
 		boolean isAMeme = false;
@@ -168,7 +180,11 @@ public class Chatbot {
 	
 		return isAMeme;
 	}
-
+	/**
+	 * see's if the user put in content 
+	 * @param input
+	 * @return output
+	 */
 	private boolean contentChecker(String input)
 	{
 		boolean hasMyContent = false;
