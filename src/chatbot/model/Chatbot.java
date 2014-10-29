@@ -117,7 +117,6 @@ public class Chatbot {
 			processedText = "Boring, that wasn't a meme";
 		}
 		
-		return processedText;
 		}
 		return processedText;
 	}

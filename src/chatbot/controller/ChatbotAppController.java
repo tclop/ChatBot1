@@ -52,9 +52,9 @@ public class ChatbotAppController
 		/**
 		 * Makes a pop up window and ask a question.
 		 */
-		String message = appView.displayChatbotConversations(startMessage);
+	/*	String message = appView.displayChatbotConversations(startMessage);
 		
-		/*while(!notSoCleverBot.quitChecker(message))
+		while(!notSoCleverBot.quitChecker(message))
 		{
 			message = notSoCleverBot.processText(message);	
 			message =appView.displayChatbotConversations(message);	
