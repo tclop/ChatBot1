@@ -80,10 +80,19 @@ public class Chatbot {
 		String processedText = "";
 		incrementChats();
 		
-		int randomChoice = (int) (Math.random() * 3);
+		int randomChoice = (int) (Math.random() * 4);
 		if(userText != null)
-		if(randomChoice == 0)
 		{
+		if (numberOfChats < 4)	
+		{
+			
+		}
+		else
+		{
+			
+		
+		if(randomChoice == 0)
+		
 			if(stringLengthChecker(userText))
 			{
 				processedText = "that is waaaaaay too long to read :P";
@@ -92,6 +101,7 @@ public class Chatbot {
 			{
 				processedText = "why not type something longer?";
 			}
+		}
 		}
 		else if (randomChoice == 1)
 		{
@@ -197,6 +207,7 @@ public class Chatbot {
 		}
 		return hasMyContent;
 	}
+	
 
 }		
 
