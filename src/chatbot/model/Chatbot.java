@@ -6,6 +6,8 @@ public class Chatbot {
 	private String name;
 	private int numberOfChats;
 	private ArrayList<String> memeList;
+	private ArrayList<String> userInputList;
+	private User myUser;
 	private String contentArea;
 	
 
@@ -17,6 +19,7 @@ public class Chatbot {
 		this.name = name;
 		numberOfChats = 0;
 		contentArea = "";
+		userInputList = new ArrayList<String>();
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 		
@@ -80,12 +83,35 @@ public class Chatbot {
 		String processedText = "";
 		incrementChats();
 		
-		int randomChoice = (int) (Math.random() * 4);
+		int randomChoice = (int) (Math.random() * 6);
 		if(userText != null)
 		{
-		if (numberOfChats < 4)	
+		if (numberOfChats < 5)	
 		{
-			
+			if(numberOfChats == 0)
+			{
+				myUser.setName(userText);
+				processedText = "Hello" + myUser.getName() + "What is your age?";
+			}
+			else if(numberOfChats == 1)
+			{
+				int age = Integer.parseInt(userText);
+				myUser.setAge(age);
+				processedText = "Hello" + myUser.getName() + ", you are really" + myUser.getAge() + "years old?";
+				processedText += "/n Where do you go to school";
+			}
+			else if(numberOfChats == 2)
+			{
+				
+			}
+			else if(numberOfChats == 3)
+			{
+				
+			}
+			else
+			{
+				
+			}
 		}
 		else
 		{
@@ -114,7 +140,7 @@ public class Chatbot {
 				processedText = "";
 			}
 		}
-		else
+		else if (randomChoice == 2)
 		{
 		
 		if(memeChecker(userText))
@@ -126,11 +152,49 @@ public class Chatbot {
 		{
 			processedText = "Boring, that wasn't a meme";
 		}
+	
 		
+		}
+		else if (randomChoice == 3)
+		{
+			//user based talking
+			//should store a string in proccessedText from another method say chooseRandomUserInfo(String)
+		}
+		else if (randomChoice == 4)
+		{
+			userInputList.add(0, userText);
+			processedText = "Thanks for the info," + myUser.getName();
+		}
+		else
+		{
+			if(userInputChecker(userText))
+			{
+				 
+			}
 		}
 		return processedText;
 	}
-	/*
+	
+	private boolean userInputChecker(String input)
+	{
+		boolean matchesInput = false;
+		
+		if(userInputList.size() > 0)
+		{
+			for(int loopCount = 0; loopCount < userInputList.size(); loopCount++)
+			{
+				if(input.equalsIgnoreCase(userInputList.get(loopCount)))
+				{
+					matchesInput = true;
+					userInputList.remove(loopCount);
+					loopCount--;
+				}
+			}
+		}
+				
+		return matchesInput;		
+	}
+	/**
 	 * Checks to see user's input. See's if its okay to quit
 	 * b
 	 */
