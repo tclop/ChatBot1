@@ -111,48 +111,47 @@ public class Chatbot {
 			{
 				
 			}
+			}
 		}
 		private String randomChatTopic(String userInput)
 		{
 			String randomTopic = "";
 			int randomChoice = (int) (Math.random() * 7);
-			if (randomChoice == 0)
-			
-		
-		if(randomChoice == 0)
-		
-			if(stringLengthChecker(userText))
+			if(randomChoice == 0)
 			{
-				processedText = "that is waaaaaay too long to read :P";
+		
+			if(stringLengthChecker(userInput))
+			{
+				randomTopic = "that is waaaaaay too long to read :P";
 			}
 			else
 			{
-				processedText = "why not type something longer?";
+				randomTopic = "why not type something longer?";
 			}
 		}
 		}
 		else if (randomChoice == 1)
 		{
-			if(contentChecker(userText))
+			if(contentChecker(userInput))
 			{
-				processedText = " i like" +userText;
+				randomTopic = " i like" +userInput;
 			}
 			else
 			{
-				processedText = "";
+				randomTopic = "";
 			}
 		}
 		else if (randomChoice == 2)
 		{
 		
-		if(memeChecker(userText))
+		if(memeChecker(userInput))
 		{
-			processedText = "hey, you found a meme:" + userText;
-			processedText += "isn't that cool.";
+			randomTopic = "hey, you found a meme:" + userInput;
+			randomTopic += "isn't that cool.";
 		}
 		else
 		{
-			processedText = "Boring, that wasn't a meme";
+			randomTopic = "Boring, that wasn't a meme";
 		}
 	
 		
@@ -164,12 +163,12 @@ public class Chatbot {
 		}
 		else if (randomChoice == 4)
 		{
-			userInputList.add(0, userText);
-			processedText = "Thanks for the info," + myUser.getName();
+			userInputList.add(0, userInput);
+			randomTopic = "Thanks for the info," + myUser.getName();
 		}
 		else
 		{
-			if(userInputChecker(userText))
+			if(userInputChecker(userInput))
 			{
 				 
 			}
@@ -177,7 +176,7 @@ public class Chatbot {
 		String randomTopic;
 		if (randomChoice == 5)
 		{
-			if(userInputChecker(userText))
+			if(userInputChecker(userInput))
 			{
 				randomTopic = "I love you. <3";
 			}
@@ -188,7 +187,7 @@ public class Chatbot {
 		}
 		else
 		{
-			if (chatbotNameChecker(userText));
+			if (chatbotNameChecker(userInput));
 			String userInput;
 			{
 				randomTopic = chatbotNameConversation(userInput);
