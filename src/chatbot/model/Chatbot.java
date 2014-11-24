@@ -68,7 +68,7 @@ public class Chatbot {
 			memeList.add("y u madBro?");
 			memeList.add("Not sure if ");
 			memeList.add("buy and iPhone 5 they say");
-			memeList.add("Real Life? I've never hear of that server before");
+			memeList.add("you what mate");
 			memeList.add("Aint nobody got time for dat");
 	}
 	
@@ -82,8 +82,7 @@ public class Chatbot {
 	{
 		String processedText = "";
 		incrementChats();
-		
-		int randomChoice = (int) (Math.random() * 6);
+		int randomChoice = (int) (Math.random() * 7);
 		if(userText != null)
 		{
 		if (numberOfChats < 5)	
@@ -113,8 +112,11 @@ public class Chatbot {
 				
 			}
 		}
-		else
+		private String randomChatTopic(String userInput)
 		{
+			String randomTopic = "";
+			int randomChoice = (int) (Math.random() * 7);
+			if (randomChoice == 0)
 			
 		
 		if(randomChoice == 0)
@@ -172,6 +174,29 @@ public class Chatbot {
 				 
 			}
 		}
+		String randomTopic;
+		if (randomChoice == 5)
+		{
+			if(userInputChecker(userText))
+			{
+				randomTopic = "I love you. <3";
+			}
+			else
+			{
+				randomTopic ="I really really really really dislike you.";
+			}
+		}
+		else
+		{
+			if (chatbotNameChecker(userText));
+			String userInput;
+			{
+				randomTopic = chatbotNameConversation(userInput);
+			}
+			{
+				randomTopic = noNameConversation(userInput);
+			}
+		}
 		return processedText;
 	}
 	
@@ -210,7 +235,7 @@ public class Chatbot {
 		return okToQuit;
 	}
 	/**
-	 * tells how lon the user input is
+	 * tells how long the user input is
 	 * @param input
 	 * @return tells if the string is too long
 	 */
@@ -272,7 +297,37 @@ public class Chatbot {
 		return hasMyContent;
 	}
 	
+	private boolean chatbotNameChecker(String currentInput)
+	 {
+		boolean hasNameInString = false;
+		if(currentInput.indexOf(this.getName())> -1)
+		{
+			hasNameInString = true;
+		}
+		return hasNameInString;
+	}
+	
+	private String chatbotNameConversation(String currentInput)
+	{
+		String nameConversation = "This is what you typed after my name";
+		
+		nameConversation += currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length(), currentInput.length()-1);
+		
+		return nameConversation;
+	}
+	
+	private String noNameConversation(String currentInput)
+	{
+		String notNamed = "";
+		
+		int smallRandom = (int) (Math.random() * currentInput.length() / 2);
+		int largerRandom = (int) (smallRandom +(Math.random() * currentInput.length() /2) + 1); 
+		
+		notNamed = "You didn't say my name so here is a special phrase:" + currentInput.substring(smallRandom, largerRandom);
+		return notNamed;
+	}
 
 }		
+
 
 
