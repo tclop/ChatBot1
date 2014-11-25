@@ -2,8 +2,8 @@ package chatbot.model;
 
 public class User
 {
-private String School;	
-private String name;
+private String name;	
+private String School;
 private int age;
 private String FavoritePokemon;
 
@@ -54,5 +54,11 @@ public String getSchool()
 public void setSchool(String school)
 {
 	School = school;
+}
+
+public void setName(String userText)
+{
+	// TODO Auto-generated method stub
+	
 }
 }

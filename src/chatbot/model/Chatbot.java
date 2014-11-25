@@ -6,6 +6,8 @@ public class Chatbot {
 	private String name;
 	private int numberOfChats;
 	private ArrayList<String> memeList;
+	private ArrayList<String> userInputList;
+	private User myUser;
 	private String contentArea;
 	
 
@@ -17,6 +19,7 @@ public class Chatbot {
 		this.name = name;
 		numberOfChats = 0;
 		contentArea = "";
+		userInputList = new ArrayList<String>();
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
 		
@@ -65,7 +68,7 @@ public class Chatbot {
 			memeList.add("y u madBro?");
 			memeList.add("Not sure if ");
 			memeList.add("buy and iPhone 5 they say");
-			memeList.add("Real Life? I've never hear of that server before");
+			memeList.add("you what mate");
 			memeList.add("Aint nobody got time for dat");
 	}
 	
@@ -79,57 +82,145 @@ public class Chatbot {
 	{
 		String processedText = "";
 		incrementChats();
-		
-		int randomChoice = (int) (Math.random() * 4);
+		int randomChoice = (int) (Math.random() * 7);
 		if(userText != null)
 		{
-		if (numberOfChats < 4)	
+		if (numberOfChats < 5)	
 		{
-			
-		}
-		else
-		{
-			
-		
-		if(randomChoice == 0)
-		
-			if(stringLengthChecker(userText))
+			if(numberOfChats == 0)
 			{
-				processedText = "that is waaaaaay too long to read :P";
+				myUser.setName(userText);
+				processedText = "Hello" + myUser.getName() + "What is your age?";
+			}
+			else if(numberOfChats == 1)
+			{
+				int age = Integer.parseInt(userText);
+				myUser.setAge(age);
+				processedText = "Hello" + myUser.getName() + ", you are really" + myUser.getAge() + "years old?";
+				processedText += "/n Where do you go to school";
+			}
+			else if(numberOfChats == 2)
+			{
+				
+			}
+			else if(numberOfChats == 3)
+			{
+				
 			}
 			else
 			{
-				processedText = "why not type something longer?";
+				
+			}
+			}
+		}
+		private String randomChatTopic(String userInput)
+		{
+			String randomTopic = "";
+			int randomChoice = (int) (Math.random() * 7);
+			if(randomChoice == 0)
+			{
+		
+			if(stringLengthChecker(userInput))
+			{
+				randomTopic = "that is waaaaaay too long to read :P";
+			}
+			else
+			{
+				randomTopic = "why not type something longer?";
 			}
 		}
 		}
 		else if (randomChoice == 1)
 		{
-			if(contentChecker(userText))
+			if(contentChecker(userInput))
 			{
-				processedText = " i like" +userText;
+				randomTopic = " i like" +userInput;
 			}
 			else
 			{
-				processedText = "";
+				randomTopic = "";
+			}
+		}
+		else if (randomChoice == 2)
+		{
+		
+		if(memeChecker(userInput))
+		{
+			randomTopic = "hey, you found a meme:" + userInput;
+			randomTopic += "isn't that cool.";
+		}
+		else
+		{
+			randomTopic = "Boring, that wasn't a meme";
+		}
+	
+		
+		}
+		else if (randomChoice == 3)
+		{
+			//user based talking
+			//should store a string in proccessedText from another method say chooseRandomUserInfo(String)
+		}
+		else if (randomChoice == 4)
+		{
+			userInputList.add(0, userInput);
+			randomTopic = "Thanks for the info," + myUser.getName();
+		}
+		else
+		{
+			if(userInputChecker(userInput))
+			{
+				 
+			}
+		}
+		String randomTopic;
+		if (randomChoice == 5)
+		{
+			if(userInputChecker(userInput))
+			{
+				randomTopic = "I love you. <3";
+			}
+			else
+			{
+				randomTopic ="I really really really really dislike you.";
 			}
 		}
 		else
 		{
-		
-		if(memeChecker(userText))
-		{
-			processedText = "hey, you found a meme:" + userText;
-			processedText += "isn't that cool.";
-		}
-		else
-		{
-			processedText = "Boring, that wasn't a meme";
-		}
-		
+			if (chatbotNameChecker(userInput));
+			String userInput;
+			{
+				randomTopic = chatbotNameConversation(userInput);
+			}
+			{
+				randomTopic = noNameConversation(userInput);
+			}
 		}
 		return processedText;
 	}
+<<<<<<< HEAD
+=======
+	
+	private boolean userInputChecker(String input)
+	{
+		boolean matchesInput = false;
+		
+		if(userInputList.size() > 0)
+		{
+			for(int loopCount = 0; loopCount < userInputList.size(); loopCount++)
+			{
+				if(input.equalsIgnoreCase(userInputList.get(loopCount)))
+				{
+					matchesInput = true;
+					userInputList.remove(loopCount);
+					loopCount--;
+				}
+			}
+		}
+				
+		return matchesInput;		
+	}
+>>>>>>> origin/master
 	/**
 	 * Checks to see user's input. See's if its okay to quit
 	 * b
@@ -208,7 +299,37 @@ public class Chatbot {
 		return hasMyContent;
 	}
 	
+	private boolean chatbotNameChecker(String currentInput)
+	 {
+		boolean hasNameInString = false;
+		if(currentInput.indexOf(this.getName())> -1)
+		{
+			hasNameInString = true;
+		}
+		return hasNameInString;
+	}
+	
+	private String chatbotNameConversation(String currentInput)
+	{
+		String nameConversation = "This is what you typed after my name";
+		
+		nameConversation += currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length(), currentInput.length()-1);
+		
+		return nameConversation;
+	}
+	
+	private String noNameConversation(String currentInput)
+	{
+		String notNamed = "";
+		
+		int smallRandom = (int) (Math.random() * currentInput.length() / 2);
+		int largerRandom = (int) (smallRandom +(Math.random() * currentInput.length() /2) + 1); 
+		
+		notNamed = "You didn't say my name so here is a special phrase:" + currentInput.substring(smallRandom, largerRandom);
+		return notNamed;
+	}
 
 }		
+
 
 
