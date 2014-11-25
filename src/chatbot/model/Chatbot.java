@@ -130,7 +130,7 @@ public class Chatbot {
 		}
 		return processedText;
 	}
-	/*
+	/**
 	 * Checks to see user's input. See's if its okay to quit
 	 * b
 	 */
@@ -146,7 +146,7 @@ public class Chatbot {
 		return okToQuit;
 	}
 	/**
-	 * tells how lon the user input is
+	 * tells how long the user input is
 	 * @param input
 	 * @return tells if the string is too long
 	 */
