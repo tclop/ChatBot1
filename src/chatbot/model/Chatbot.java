@@ -134,11 +134,11 @@ public class Chatbot {
 		{
 			if(contentChecker(userInput))
 			{
-				randomTopic = " i like" +userInput;
+				randomChatTopic = " i like" +userInput;
 			}
 			else
 			{
-				randomTopic = "";
+				randomChatTopic = "";
 			}
 		}
 		else if (randomChoice == 2)
@@ -146,12 +146,12 @@ public class Chatbot {
 		
 		if(memeChecker(userInput))
 		{
-			randomTopic = "hey, you found a meme:" + userInput;
-			randomTopic += "isn't that cool.";
+			randomChatTopic = "hey, you found a meme:" + userInput;
+			randomChatTopic += "isn't that cool.";
 		}
 		else
 		{
-			randomTopic = "Boring, that wasn't a meme";
+			randomChatTopic = "Boring, that wasn't a meme";
 		}
 	
 		
@@ -164,7 +164,7 @@ public class Chatbot {
 		else if (randomChoice == 4)
 		{
 			userInputList.add(0, userInput);
-			randomTopic = "Thanks for the info," + myUser.getName();
+			randomChatTopic = "Thanks for the info," + myUser.getName();
 		}
 		else
 		{
