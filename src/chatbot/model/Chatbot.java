@@ -89,7 +89,7 @@ public class Chatbot {
 		{
 			if(numberOfChats == 0)
 			{
-				myUser.setName(userText);
+				myUser.getName(userText);
 				processedText = "Hello" + myUser.getName() + "What is your age?";
 			}
 			else if(numberOfChats == 1)
@@ -111,7 +111,10 @@ public class Chatbot {
 			{
 				
 			}
-			}
+			return processedText;
+		}}
+		return processedText;
+		
 		}
 		private String randomChatTopic(String userInput)
 		{
@@ -129,8 +132,9 @@ public class Chatbot {
 				randomTopic = "why not type something longer?";
 			}
 		}
+			return randomTopic;
 		}
-		else if (randomChoice == 1)
+		/*else if (randomChoice == 1)
 		{
 			if(contentChecker(userInput))
 			{
@@ -195,11 +199,8 @@ public class Chatbot {
 			{
 				randomTopic = noNameConversation(userInput);
 			}
+		
 		}
-		return processedText;
-	}
-<<<<<<< HEAD
-=======
 	
 	private boolean userInputChecker(String input)
 	{
@@ -220,7 +221,6 @@ public class Chatbot {
 				
 		return matchesInput;		
 	}
->>>>>>> origin/master
 	/**
 	 * Checks to see user's input. See's if its okay to quit
 	 * b
@@ -329,7 +329,8 @@ public class Chatbot {
 		return notNamed;
 	}
 
-}		
+	
+}
 
 
 
