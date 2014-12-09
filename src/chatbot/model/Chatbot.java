@@ -8,9 +8,6 @@ public class Chatbot {
 	private ArrayList<String> memeList;
 	private ArrayList<String> userInputList;
 	private User myUser;
-	private String contentArea;
-	
-
 	/**
 	 * Creates a Chatbot object with a specified name. Initializes the total chats to 0. Creates and fills the memeList.
 	 * @param name The name of the chatbot
@@ -18,7 +15,6 @@ public class Chatbot {
 	public Chatbot(String name) {
 		this.name = name;
 		numberOfChats = 0;
-		contentArea = "";
 		userInputList = new ArrayList<String>();
 		memeList = new ArrayList<String>();
 		fillTheMemeList();
@@ -82,7 +78,7 @@ public class Chatbot {
 	{
 		String processedText = "";
 		incrementChats();
-		int randomChoice = (int) (Math.random() * 7);
+		Math.random();
 		if(userText != null)
 		{
 		if (numberOfChats < 5)	
@@ -115,24 +111,6 @@ public class Chatbot {
 		}}
 		return processedText;
 		
-		}
-		private String randomChatTopic(String userInput)
-		{
-			String randomTopic = "";
-			int randomChoice = (int) (Math.random() * 7);
-			if(randomChoice == 0)
-			{
-		
-			if(stringLengthChecker(userInput))
-			{
-				randomTopic = "that is waaaaaay too long to read :P";
-			}
-			else
-			{
-				randomTopic = "why not type something longer?";
-			}
-		}
-			return randomTopic;
 		}
 		/*else if (randomChoice == 1)
 		{
@@ -252,85 +230,5 @@ public class Chatbot {
 		
 		return isTooLong;
 	}
-	
-	/**
-	 * see's if the user input a meme
-	 * @param currentText
-	 * @return true or false
-	 */
-	private boolean memeChecker(String currentText)
-	{
-		boolean isAMeme = false;
-		
-		for(String currentMeme : memeList)
-		{
-			if (currentMeme.equalsIgnoreCase(currentText))
-			{
-				isAMeme = true;
-			}
-		}
-		 
-	for(int loopCounter = 0; loopCounter< memeList.size(); loopCounter++)
-	{
-		if(memeList.get(loopCounter).equalsIgnoreCase(currentText))
-		{
-			isAMeme = true;
-		}
-	}
-	
-		return isAMeme;
-	}
-	/**
-	 * see's if the user put in content 
-	 * @param input
-	 * @return output
-	 */
-	private boolean contentChecker(String input)
-	{
-		boolean hasMyContent = false;
-		
-		if(input.contains(contentArea))
-		{
-	
-			{
-				hasMyContent = true;
-			}
-		}
-		return hasMyContent;
-	}
-	
-	private boolean chatbotNameChecker(String currentInput)
-	 {
-		boolean hasNameInString = false;
-		if(currentInput.indexOf(this.getName())> -1)
-		{
-			hasNameInString = true;
-		}
-		return hasNameInString;
-	}
-	
-	private String chatbotNameConversation(String currentInput)
-	{
-		String nameConversation = "This is what you typed after my name";
-		
-		nameConversation += currentInput.substring(currentInput.indexOf(this.getName()) + this.getName().length(), currentInput.length()-1);
-		
-		return nameConversation;
-	}
-	
-	private String noNameConversation(String currentInput)
-	{
-		String notNamed = "";
-		
-		int smallRandom = (int) (Math.random() * currentInput.length() / 2);
-		int largerRandom = (int) (smallRandom +(Math.random() * currentInput.length() /2) + 1); 
-		
-		notNamed = "You didn't say my name so here is a special phrase:" + currentInput.substring(smallRandom, largerRandom);
-		return notNamed;
-	}
-
-	
 }
-
-
 
